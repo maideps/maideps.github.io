@@ -136,8 +136,26 @@
       background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
     }
     .feature:nth-child(even) .shot { order: 2; }
-    .shot { background: var(--accent-soft); display: flex; align-items: center; justify-content: center; padding: 22px; }
-    .shot img { border-radius: 8px; border: 1px solid var(--line); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+    .feature > * { min-width: 0; }
+    .shot {
+      background: linear-gradient(135deg, var(--accent-soft), color-mix(in srgb, var(--accent-soft) 55%, var(--bg)));
+      display: flex; align-items: center; justify-content: center; padding: 28px;
+      text-decoration: none;
+    }
+    .window {
+      width: 100%; border-radius: 10px; overflow: hidden; background: #1b1d22;
+      border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+      box-shadow: 0 14px 34px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.08);
+      transition: transform .2s;
+    }
+    .shot:hover .window { transform: translateY(-3px) scale(1.01); }
+    .window-bar { display: flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; background: #2a2d33; }
+    .window-bar i { width: 10px; height: 10px; border-radius: 50%; background: #50545c; }
+    .window-bar i:nth-child(1) { background: #e0675c; }
+    .window-bar i:nth-child(2) { background: #e3b341; }
+    .window-bar i:nth-child(3) { background: #5bbf6a; }
+    .window-bar span { margin-left: 10px; font: 400 11.5px/1 var(--mono); color: #a3a7ae; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .window img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
     .feature .body { padding: 32px; display: flex; flex-direction: column; gap: 14px; }
     .feature p { margin: 0; color: var(--muted); font-size: 16px; }
     .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 4px 0; }
@@ -315,8 +333,11 @@
 
       <div class="featured">
         <article class="feature">
-          <a class="shot" href="https://github.com/maideps/ai-issue-triage">
-            <img src="https://raw.githubusercontent.com/maideps/ai-issue-triage/main/docs/images/review.png" alt="ai-issue-triage: an issue beside a draft reply that quotes the uv docs, waiting for a maintainer's decision" loading="lazy" width="1200" height="750" />
+          <a class="shot" href="https://raw.githubusercontent.com/maideps/ai-issue-triage/main/docs/images/review.png" target="_blank" rel="noopener" aria-label="Open the ai-issue-triage screenshot full size">
+            <div class="window">
+              <div class="window-bar"><i></i><i></i><i></i><span>ai-issue-triage · review queue</span></div>
+              <img src="https://raw.githubusercontent.com/maideps/ai-issue-triage/main/docs/images/review.png" alt="ai-issue-triage: an issue beside a draft reply that quotes the uv docs, waiting for a maintainer's decision" loading="lazy" width="800" height="500" />
+            </div>
           </a>
           <div class="body">
             <h3>ai-issue-triage</h3>
@@ -331,8 +352,11 @@
         </article>
 
         <article class="feature">
-          <a class="shot" href="https://github.com/maideps/ai-invoice-intake">
-            <img src="https://raw.githubusercontent.com/maideps/ai-invoice-intake/main/docs/images/review.png" alt="ai-invoice-intake: the source PDF beside the extracted fields and their confidence" loading="lazy" width="1200" height="750" />
+          <a class="shot" href="https://raw.githubusercontent.com/maideps/ai-invoice-intake/main/docs/images/review.png" target="_blank" rel="noopener" aria-label="Open the ai-invoice-intake screenshot full size">
+            <div class="window">
+              <div class="window-bar"><i></i><i></i><i></i><span>ai-invoice-intake · invoice review</span></div>
+              <img src="https://raw.githubusercontent.com/maideps/ai-invoice-intake/main/docs/images/review.png" alt="ai-invoice-intake: the source PDF beside the extracted fields and their confidence" loading="lazy" width="1440" height="900" />
+            </div>
           </a>
           <div class="body">
             <h3>ai-invoice-intake <span class="badge">v1.0.0</span></h3>
